@@ -1,0 +1,22 @@
+{
+  "name": "desafio-final-api",
+  "version": "1.0.0",
+  "description": "REST API MVC - Desafio Final: Arquiteto(a) de Software",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "jest --coverage"
+  },
+  "keywords": ["rest-api", "mvc", "nodejs", "express", "sqlite"],
+  "author": "Edward Souza",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "better-sqlite3": "^9.4.3",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
