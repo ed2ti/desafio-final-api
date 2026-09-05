@@ -35,7 +35,8 @@ class Pedido {
       FROM pedido_itens
       WHERE pedido_id = ?
     `).get(pedidoId);
-    return result?.total || 0;
+    // Round to 2 decimal places to avoid floating point issues
+    return Math.round((result?.total || 0) * 100) / 100;
   }
 
   static count() {

@@ -33,6 +33,13 @@ class Produto {
 
   static delete(id) {
     const produto = this.findById(id);
+    // Check if product is in any orders
+    const hasOrders = db.prepare(
+      'SELECT COUNT(*) as count FROM pedido_itens WHERE produto_id = ?'
+    ).get(id);
+    if (hasOrders.count > 0) {
+      throw new Error('Produto não pode ser removido pois está em pedidos existentes');
+    }
     db.prepare('DELETE FROM produtos WHERE id = ?').run(id);
     return produto;
   }
